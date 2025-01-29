@@ -1,0 +1,12 @@
+Instruction to test LabVIEW test software
+=========================================
+
+The supplied Labview subroutine will launch the video capture routine and, while the video is recording, launch George's Python code
+to exercise the actuation mechanism.
+
+1. Install ffmpeg on the host machine. I downloaded from https://github.com/BtbN/FFmpeg-Builds/releases and grabbed the zip archive "ffmpeg-master-latest-win64-gpl.zip"
+   Once this has downloaded, unpack the archive and copy the ffmpeg directory into C:/Program Files.
+   Once this is done, the FFMPEG executable should be located at "C:\Program Files\ffmpeg-master-latest-win64-gpl\bin\ffmpeg.exe"
+   You will need admin rights in order to write files to C:\Program Files
+
+2. 

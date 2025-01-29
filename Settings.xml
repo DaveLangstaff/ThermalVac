@@ -1,0 +1,474 @@
+<?xml version='1.0' standalone='yes' ?>
+<LVData xmlns="http://www.ni.com/LVData">
+<Version>24.3.2f2</Version>
+<Cluster>
+<Name>User Configuration</Name>
+<NumElts>2</NumElts>
+<Cluster>
+<Name>Hardware Configuration</Name>
+<NumElts>2</NumElts>
+<Cluster>
+<Name>VGC50</Name>
+<NumElts>5</NumElts>
+<Cluster>
+<Name>serial settings</Name>
+<NumElts>2</NumElts>
+<Refnum>
+<Name>port</Name>
+<RefKind>VISA</RefKind>
+<Val>Inficon_VGC503</Val>
+</Refnum>
+<U32>
+<Name>baud rate</Name>
+<Val>115200</Val>
+</U32>
+</Cluster>
+<Cluster>
+<Name>device information</Name>
+<NumElts>5</NumElts>
+<String>
+<Name>type</Name>
+<Val>VGC503</Val>
+</String>
+<String>
+<Name>model number</Name>
+<Val>398-483</Val>
+</String>
+<String>
+<Name>serial number</Name>
+<Val>7433</Val>
+</String>
+<String>
+<Name>firmware version</Name>
+<Val>1.07</Val>
+</String>
+<String>
+<Name>hardware version</Name>
+<Val>1.0</Val>
+</String>
+</Cluster>
+<Object>
+<Name>VGC</Name>
+<NumLevels>1</NumLevels>
+<Class>PL Inficon VGC.lvclass</Class>
+<Version>1.0.0.2</Version>
+<Cluster>
+<Name>PL Inficon VGC.lvclass</Name>
+<NumElts>5</NumElts>
+<EW>
+<Name>interface</Name>
+<Choice>serial</Choice>
+<Choice>network</Choice>
+<Val>0</Val>
+</EW>
+<U32>
+<Name>timeout, ms</Name>
+<Val>1000</Val>
+</U32>
+<Boolean>
+<Name>connected</Name>
+<Val>1</Val>
+</Boolean>
+<Cluster>
+<Name>serial</Name>
+<NumElts>2</NumElts>
+<Refnum>
+<Name>port</Name>
+<RefKind>VISA</RefKind>
+<Val>Inficon_VGC503</Val>
+</Refnum>
+<U32>
+<Name>baud rate</Name>
+<Val>115200</Val>
+</U32>
+</Cluster>
+<Cluster>
+<Name>TCP</Name>
+<NumElts>3</NumElts>
+<Refnum>
+<Name>connection</Name>
+<RefKind>TCP</RefKind>
+<Val>0x00000000</Val>
+</Refnum>
+<String>
+<Name>ip address</Name>
+<Val></Val>
+</String>
+<U16>
+<Name>port</Name>
+<Val>502</Val>
+</U16>
+</Cluster>
+</Cluster>
+</Object>
+<Cluster>
+<Name>Backing SP</Name>
+<NumElts>3</NumElts>
+<U16>
+<Name>mode</Name>
+<Val>2</Val>
+</U16>
+<Cluster>
+<Name>thresholds</Name>
+<NumElts>2</NumElts>
+<DBL>
+<Name>lower</Name>
+<Val>1.00000000000000</Val>
+</DBL>
+<DBL>
+<Name>upper</Name>
+<Val>5.00000000000000</Val>
+</DBL>
+</Cluster>
+<Boolean>
+<Name>on</Name>
+<Val>1</Val>
+</Boolean>
+</Cluster>
+<Cluster>
+<Name>Chamber SP</Name>
+<NumElts>3</NumElts>
+<U16>
+<Name>mode</Name>
+<Val>3</Val>
+</U16>
+<Cluster>
+<Name>thresholds</Name>
+<NumElts>2</NumElts>
+<DBL>
+<Name>lower</Name>
+<Val>5.00000000000000E-4</Val>
+</DBL>
+<DBL>
+<Name>upper</Name>
+<Val>1000.00000000000000</Val>
+</DBL>
+</Cluster>
+<Boolean>
+<Name>on</Name>
+<Val>1</Val>
+</Boolean>
+</Cluster>
+</Cluster>
+<Cluster>
+<Name>PTC10</Name>
+<NumElts>16</NumElts>
+<Cluster>
+<Name>serial settings</Name>
+<NumElts>2</NumElts>
+<Refnum>
+<Name>port</Name>
+<RefKind>VISA</RefKind>
+<Val>Stanford_PTC10</Val>
+</Refnum>
+<U32>
+<Name>baud rate</Name>
+<Val>9600</Val>
+</U32>
+</Cluster>
+<Cluster>
+<Name>PTC10 Info</Name>
+<NumElts>4</NumElts>
+<String>
+<Name>Manufacturer</Name>
+<Val>Stanford Research Systems</Val>
+</String>
+<String>
+<Name>Instrument</Name>
+<Val> PTC10 Programmable Temperature Controller</Val>
+</String>
+<String>
+<Name>Serial Number</Name>
+<Val> 153826</Val>
+</String>
+<String>
+<Name>Firmware</Name>
+<Val> version 4.56</Val>
+</String>
+</Cluster>
+<Refnum>
+<Name>VISA resource name</Name>
+<RefKind>VISA</RefKind>
+<Val>Stanford_PTC10</Val>
+</Refnum>
+<String>
+<Name>pwmloop</Name>
+<Val>define pwmloop(#t=0 while (1) {waitforsample if(#pwm=-1){relays=0}else{if(#t&lt;#pwm) {relays=1}else{relays=3}}#t+=1 if  (#t&gt;99){#t=0} pause 0.2 s})</Val>
+</String>
+<String>
+<Name>onecycle</Name>
+<Val>define onecycle (Heat.PID.SetPoint=-60.0 Heat.PID.input=3C pwm=100 while(#3C&gt;-45.0) {pause 0.2 s}pwm= 20 pause 10 min Heat.PID.Setpoint=-40.0 while(#3C&lt;-55.0){pause 0.2 s}pwm=20 pause 10 min pwm=0)
+</Val>
+</String>
+<String>
+<Name>control</Name>
+<Val>define control (while (#Cycles&gt;0) {onecycle pause 1 s Cycles+= -1} outputenable off pwm=0)</Val>
+</String>
+<String>
+<Name>HeatDrive</Name>
+<Val>define HeatDrive ([waitForSample if(outputEnable?=On) {#x=#Heat #x^=0.5 #x*=0.2 5A=#x}]-1})</Val>
+</String>
+<String>
+<Name>ToAmbient</Name>
+<Val>define ToAmbient(5A.PID.setpoint=20.0 if(#3C&gt;25.0){pwm=100 run pwmloop while(#3C&gt;25.0){pause 0.5 s} pwm=0 relays=0 kill pwmloop}else{pwm=0 relays=0 while(#3C&lt;15.0){pause 0.5 s}} outputenable off)</Val>
+</String>
+<String>
+<Name>StartupCode</Name>
+<Val>system.display.Monitors Show</Val>
+</String>
+<Array>
+<Name>LogChannels</Name>
+<Dimsize>29</Dimsize>
+<String>
+<Name>String</Name>
+<Val>Out 1</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>I 1</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>V 1</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>R 1</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>Out 2</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>I 2</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>V 2</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>R 2</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>PCB 2</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>3A</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>3B</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>3C</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>3D</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>PCB 3</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>4A</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>4B</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>4C</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>4D</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>PCB 4</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>5A</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>5B</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>5C</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>5D</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>Cycles</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>Relays</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>pwm</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>Heat</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>...</Val>
+</String>
+<String>
+<Name>String</Name>
+<Val>Target</Val>
+</String>
+</Array>
+<String>
+<Name>Heater O/P Channel</Name>
+<Val></Val>
+</String>
+<String>
+<Name> Control Input</Name>
+<Val>3C</Val>
+</String>
+<DBL>
+<Name>TAmbient</Name>
+<Val>20.00000000000000</Val>
+</DBL>
+<DBL>
+<Name>AmbientTolerance</Name>
+<Val>5.00000000000000</Val>
+</DBL>
+<Cluster>
+<Name>TestCycleParameters</Name>
+<NumElts>9</NumElts>
+<DBL>
+<Name>TAmb</Name>
+<Val>20.00000000000000</Val>
+</DBL>
+<DBL>
+<Name>HeaterTestTemp</Name>
+<Val>-80.00000000000000</Val>
+</DBL>
+<I32>
+<Name>HeaterTestDwell</Name>
+<Val>30</Val>
+</I32>
+<I32>
+<Name>HeaterTestDuration</Name>
+<Val>15</Val>
+</I32>
+<DBL>
+<Name>MinOpTemp</Name>
+<Val>-50.00000000000000</Val>
+</DBL>
+<I32>
+<Name>MinOpDwell(min)</Name>
+<Val>30</Val>
+</I32>
+<DBL>
+<Name>TestHeatingRate (deg/min)</Name>
+<Val>0.40000000000000</Val>
+</DBL>
+<Cluster>
+<Name>SurviveCycleParameters</Name>
+<NumElts>10</NumElts>
+<DBL>
+<Name>MinSurviveTemp</Name>
+<Val>-60.00000000000000</Val>
+</DBL>
+<I32>
+<Name>MinSurvive Dwell</Name>
+<Val>10</Val>
+</I32>
+<DBL>
+<Name>MaxOpTemp</Name>
+<Val>-40.00000000000000</Val>
+</DBL>
+<I32>
+<Name>MaxOpDwell</Name>
+<Val>10</Val>
+</I32>
+<U16>
+<Name>ControlInput</Name>
+<Val>2</Val>
+</U16>
+<DBL>
+<Name>ColdStandOff</Name>
+<Val>15.00000000000000</Val>
+</DBL>
+<DBL>
+<Name>HotStandoff</Name>
+<Val>15.00000000000000</Val>
+</DBL>
+<I32>
+<Name>SteadyPWM</Name>
+<Val>20</Val>
+</I32>
+<DBL>
+<Name>MaxCoolingRate (deg/min)</Name>
+<Val>3.75000000000000</Val>
+</DBL>
+<DBL>
+<Name>MaxHeatingRate (deg/min)</Name>
+<Val>2.50000000000000</Val>
+</DBL>
+</Cluster>
+<U16>
+<Name>CycleType</Name>
+<Val>0</Val>
+</U16>
+</Cluster>
+<Cluster>
+<Name>PID Params</Name>
+<NumElts>4</NumElts>
+<DBL>
+<Name>P</Name>
+<Val>29.00000000000000</Val>
+</DBL>
+<DBL>
+<Name>I</Name>
+<Val>2.00000000000000E-2</Val>
+</DBL>
+<DBL>
+<Name>D</Name>
+<Val>2500.00000000000000</Val>
+</DBL>
+<DBL>
+<Name>Set</Name>
+<Val>-40.00000000000000</Val>
+</DBL>
+</Cluster>
+</Cluster>
+</Cluster>
+<Cluster>
+<Name>Vacuum Graph config</Name>
+<NumElts>3</NumElts>
+<Boolean>
+<Name>Log/Lin</Name>
+<Val>0</Val>
+</Boolean>
+<Boolean>
+<Name>Show Backing</Name>
+<Val>0</Val>
+</Boolean>
+<Boolean>
+<Name>Show Chamber</Name>
+<Val>0</Val>
+</Boolean>
+</Cluster>
+</Cluster>
+</LVData>
