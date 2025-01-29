@@ -40,6 +40,7 @@
 			<Item Name="Simulated Signal Type.ctl" Type="VI" URL="../controls/Simulated Signal Type.ctl"/>
 			<Item Name="SRS PTC10.ctl" Type="VI" URL="../controls/SRS PTC10.ctl"/>
 			<Item Name="State.ctl" Type="VI" URL="../controls/State.ctl"/>
+			<Item Name="SurviveCycleParams.ctl" Type="VI" URL="../controls/SurviveCycleParams.ctl"/>
 			<Item Name="TestCycleParams.ctl" Type="VI" URL="../controls/TestCycleParams.ctl"/>
 			<Item Name="UI References.ctl" Type="VI" URL="../controls/UI References.ctl"/>
 			<Item Name="User Specified Data.ctl" Type="VI" URL="../controls/User Specified Data.ctl"/>
@@ -47,7 +48,7 @@
 			<Item Name="VGC50.ctl" Type="VI" URL="../controls/VGC50.ctl"/>
 		</Item>
 		<Item Name="SubVIs" Type="Folder">
-			<Property Name="NI.SortType" Type="Int">0</Property>
+			<Property Name="NI.SortType" Type="Int">3</Property>
 			<Item Name="Utility VIs" Type="Folder">
 				<Property Name="NI.SortType" Type="Int">0</Property>
 				<Item Name="Analysis Configuration Dialog.vi" Type="VI" URL="../subVIs/Analysis Configuration Dialog.vi"/>
@@ -88,7 +89,6 @@
 			<Item Name="Setup PID.vi" Type="VI" URL="../subVIs/Setup PID.vi"/>
 			<Item Name="StartupToPTC.vi" Type="VI" URL="../subVIs/StartupToPTC.vi"/>
 			<Item Name="Statistical Analysis.vi" Type="VI" URL="../subVIs/Statistical Analysis.vi"/>
-			<Item Name="SurviveCycleParams.ctl" Type="VI" URL="../controls/SurviveCycleParams.ctl"/>
 			<Item Name="TestCycleRamp1.vi" Type="VI" URL="../subVIs/TestCycleRamp1.vi"/>
 			<Item Name="VCG50 Read SetPoints.vi" Type="VI" URL="../subVIs/VCG50 Read SetPoints.vi"/>
 			<Item Name="VGC50 Read Pressures.vi" Type="VI" URL="../subVIs/VGC50 Read Pressures.vi"/>
