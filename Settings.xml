@@ -197,12 +197,12 @@
 </String>
 <String>
 <Name>onecycle</Name>
-<Val>define onecycle (Heat.PID.SetPoint=-60.0 Heat.PID.input=3C pwm=100 while(#3C&gt;-45.0) {pause 0.2 s}pwm= 20 pause 10 min Heat.PID.Setpoint=-40.0 while(#3C&lt;-55.0){pause 0.2 s}pwm=20 pause 10 min pwm=0)
+<Val>define onecycle (Heat.PID.SetPoint=-131.5 Heat.PID.input=3C pwm=100 while(#3C&gt;-127.5) {pause 0.2 s}pwm= 20 pause 10 min Heat.PID.Setpoint=50.0 while(#3C&lt;45.0){pause 0.2 s}pwm=20 pause 30 min pwm=0)
 </Val>
 </String>
 <String>
 <Name>control</Name>
-<Val>define control (while (#Cycles&gt;0) {onecycle pause 1 s Cycles+= -1} outputenable off pwm=0)</Val>
+<Val>define control (while (#Cycles&gt;0) {onecycle pause 1 s Cycles+= -1 waitforsample} outputenable off pwm=0)</Val>
 </String>
 <String>
 <Name>HeatDrive</Name>
@@ -354,7 +354,7 @@
 </DBL>
 <Cluster>
 <Name>TestCycleParameters</Name>
-<NumElts>9</NumElts>
+<NumElts>11</NumElts>
 <DBL>
 <Name>TAmb</Name>
 <Val>20.00000000000000</Val>
@@ -364,7 +364,7 @@
 <Val>-80.00000000000000</Val>
 </DBL>
 <I32>
-<Name>HeaterTestDwell</Name>
+<Name>HeaterTestDwell(min)</Name>
 <Val>30</Val>
 </I32>
 <I32>
@@ -388,19 +388,19 @@
 <NumElts>10</NumElts>
 <DBL>
 <Name>MinSurviveTemp</Name>
-<Val>-60.00000000000000</Val>
+<Val>-131.50000000000000</Val>
 </DBL>
 <I32>
-<Name>MinSurvive Dwell</Name>
+<Name>MinSurvive Dwell(min)</Name>
 <Val>10</Val>
 </I32>
 <DBL>
-<Name>MaxOpTemp</Name>
-<Val>-40.00000000000000</Val>
+<Name>MaxSurviveTemp</Name>
+<Val>50.00000000000000</Val>
 </DBL>
 <I32>
-<Name>MaxOpDwell</Name>
-<Val>10</Val>
+<Name>MaxSurviveDwell(min)</Name>
+<Val>30</Val>
 </I32>
 <U16>
 <Name>ControlInput</Name>
@@ -408,11 +408,11 @@
 </U16>
 <DBL>
 <Name>ColdStandOff</Name>
-<Val>15.00000000000000</Val>
+<Val>4.00000000000000</Val>
 </DBL>
 <DBL>
 <Name>HotStandoff</Name>
-<Val>15.00000000000000</Val>
+<Val>5.00000000000000</Val>
 </DBL>
 <I32>
 <Name>SteadyPWM</Name>
@@ -431,25 +431,33 @@
 <Name>CycleType</Name>
 <Val>0</Val>
 </U16>
+<DBL>
+<Name>MaxOpTemp</Name>
+<Val>40.00000000000000</Val>
+</DBL>
+<I32>
+<Name>MinOpDwell(min)</Name>
+<Val>30</Val>
+</I32>
 </Cluster>
 <Cluster>
 <Name>PID Params</Name>
 <NumElts>4</NumElts>
 <DBL>
 <Name>P</Name>
-<Val>29.00000000000000</Val>
+<Val>72.90000000000001</Val>
 </DBL>
 <DBL>
 <Name>I</Name>
-<Val>2.00000000000000E-2</Val>
+<Val>0.14000000000000</Val>
 </DBL>
 <DBL>
 <Name>D</Name>
-<Val>2500.00000000000000</Val>
+<Val>2000.00000000000000</Val>
 </DBL>
 <DBL>
 <Name>Set</Name>
-<Val>-40.00000000000000</Val>
+<Val>0.00000000000000</Val>
 </DBL>
 </Cluster>
 </Cluster>
