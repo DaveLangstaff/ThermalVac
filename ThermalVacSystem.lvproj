@@ -48,7 +48,7 @@
 			<Item Name="VGC50.ctl" Type="VI" URL="../controls/VGC50.ctl"/>
 		</Item>
 		<Item Name="SubVIs" Type="Folder">
-			<Property Name="NI.SortType" Type="Int">3</Property>
+			<Property Name="NI.SortType" Type="Int">0</Property>
 			<Item Name="Utility VIs" Type="Folder">
 				<Property Name="NI.SortType" Type="Int">0</Property>
 				<Item Name="Analysis Configuration Dialog.vi" Type="VI" URL="../subVIs/Analysis Configuration Dialog.vi"/>
@@ -72,6 +72,7 @@
 			<Item Name="Load Data.vi" Type="VI" URL="../subVIs/Load Data.vi"/>
 			<Item Name="MakeOneCycleMacro.vi" Type="VI" URL="../subVIs/MakeOneCycleMacro.vi"/>
 			<Item Name="MakeOperationalCycleMacro.vi" Type="VI" URL="../subVIs/MakeOperationalCycleMacro.vi"/>
+			<Item Name="MakeSurviveCycleCode.vi" Type="VI" URL="../subVIs/MakeSurviveCycleCode.vi"/>
 			<Item Name="MakeToAmbientCode.vi" Type="VI" URL="../subVIs/MakeToAmbientCode.vi"/>
 			<Item Name="MakeToTargetCode.vi" Type="VI" URL="../subVIs/MakeToTargetCode.vi"/>
 			<Item Name="OneCycleRamp1.vi" Type="VI" URL="../subVIs/OneCycleRamp1.vi"/>
@@ -85,7 +86,6 @@
 			<Item Name="Select Waveform By Name.vi" Type="VI" URL="../subVIs/Select Waveform By Name.vi"/>
 			<Item Name="SetCryo.vi" Type="VI" URL="../subVIs/SetCryo.vi"/>
 			<Item Name="Settings Dialog.vi" Type="VI" URL="../subVIs/Settings Dialog.vi"/>
-			<Item Name="Settings.xml" Type="Document" URL="../subVIs/Settings.xml"/>
 			<Item Name="Setup PID.vi" Type="VI" URL="../subVIs/Setup PID.vi"/>
 			<Item Name="StartupToPTC.vi" Type="VI" URL="../subVIs/StartupToPTC.vi"/>
 			<Item Name="Statistical Analysis.vi" Type="VI" URL="../subVIs/Statistical Analysis.vi"/>
@@ -94,6 +94,7 @@
 			<Item Name="VGC50 Read Pressures.vi" Type="VI" URL="../subVIs/VGC50 Read Pressures.vi"/>
 		</Item>
 		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
+		<Item Name="Settings.xml" Type="Document" URL="../subVIs/Settings.xml"/>
 		<Item Name="SRS PTC10.lvlib" Type="Library" URL="/&lt;instrlib&gt;/Stanford PTC10/SRS PTC10.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
@@ -460,7 +461,6 @@
 			<Item Name="lvStorage.dll" Type="Document" URL="lvStorage.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="MakeSurviveCycleCode.vi" Type="VI" URL="../subVIs/MakeSurviveCycleCode.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="StandAloneTVC" Type="EXE">
@@ -496,7 +496,7 @@
 				<Property Name="Source[1].sourceInclusion" Type="Str">TopLevel</Property>
 				<Property Name="Source[1].type" Type="Str">VI</Property>
 				<Property Name="Source[2].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[2].itemID" Type="Ref">/My Computer/SubVIs/Settings.xml</Property>
+				<Property Name="Source[2].itemID" Type="Ref">/My Computer/Settings.xml</Property>
 				<Property Name="Source[2].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="SourceCount" Type="Int">3</Property>
 				<Property Name="TgtF_fileDescription" Type="Str">StandAloneTVC</Property>
