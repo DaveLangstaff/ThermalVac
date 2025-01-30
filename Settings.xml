@@ -197,7 +197,7 @@
 </String>
 <String>
 <Name>onecycle</Name>
-<Val>define onecycle (pwm=100 Heat.PID.Ramp=0 Heat.PID.SetPoint=-131.5 Heat.PID.input=3C while(#3C&gt;-127.5){pause 0.2 s}  pwm=20 pause 10 min pwm=0 Heat.PID.SetPoint=-80.0 while(#3C&lt;-85.0){pause 0.2 s} pwm=20 pause 45 min pwm=0 Heat.PID.SetPoint=-50.0 while(#3C&lt;-55.0){pause 0.2 s} pwm=20 pause 30 min Heat.PID.Ramp=0.00666667 Heat.PID.SetPoint=40.0 while (#3C&lt;35.0){pause 0.2 s} pause 30 min Heat.PID.Ramp=0 Heat.PID.SetPoint =50.000000 while (#3C&lt;45.0){pause 0.2 s} pause 30 min )
+<Val>define onecycle (pwm=100 Heat.PID.Ramp=0 Heat.PID.SetPoint=0.0 Heat.PID.input=3C while(#3C&gt;4.0){pause 0.2 s}  pwm=20 pause 10 min pwm=0 Heat.PID.SetPoint=5.0 while(#3C&lt;0.0){pause 0.2 s} pwm=20 pause 25 min pwm=0 Heat.PID.SetPoint=20.0 while(#3C&lt;15.0){pause 0.2 s} pwm=20 pause 30 min Heat.PID.Ramp=0.00666667 Heat.PID.SetPoint=30.0 while (#3C&lt;25.0){pause 0.2 s} pause 30 min Heat.PID.Ramp=0 Heat.PID.SetPoint =40.000000 while (#3C&lt;35.0){pause 0.2 s} pause 30 min )
 </Val>
 </String>
 <String>
@@ -210,7 +210,7 @@
 </String>
 <String>
 <Name>ToAmbient</Name>
-<Val>define ToAmbient(pwm=0 outputenable off)</Val>
+<Val>define ToAmbient(5A.PID.setpoint=20.0 if(#3C&gt;25.0){pwm=100 run pwmloop while(#3C&gt;25.0){pause 0.5 s} pwm=0 relays=0 kill pwmloop}else{pwm=0 relays=0 while(#3C&lt;15.0){pause 0.5 s}} outputenable off)</Val>
 </String>
 <String>
 <Name>StartupCode</Name>
@@ -361,11 +361,11 @@
 </DBL>
 <DBL>
 <Name>HeaterTestTemp</Name>
-<Val>-80.00000000000000</Val>
+<Val>5.00000000000000</Val>
 </DBL>
 <I32>
 <Name>HeaterTestDwell(min)</Name>
-<Val>30</Val>
+<Val>10</Val>
 </I32>
 <I32>
 <Name>HeaterTestDuration</Name>
@@ -373,7 +373,7 @@
 </I32>
 <DBL>
 <Name>MinOpTemp</Name>
-<Val>-50.00000000000000</Val>
+<Val>20.00000000000000</Val>
 </DBL>
 <I32>
 <Name>MinOpDwell(min)</Name>
@@ -388,7 +388,7 @@
 <NumElts>10</NumElts>
 <DBL>
 <Name>MinSurviveTemp</Name>
-<Val>-131.50000000000000</Val>
+<Val>0.00000000000000</Val>
 </DBL>
 <I32>
 <Name>MinSurvive Dwell(min)</Name>
@@ -396,7 +396,7 @@
 </I32>
 <DBL>
 <Name>MaxSurviveTemp</Name>
-<Val>50.00000000000000</Val>
+<Val>40.00000000000000</Val>
 </DBL>
 <I32>
 <Name>MaxSurviveDwell(min)</Name>
@@ -433,7 +433,7 @@
 </U16>
 <DBL>
 <Name>MaxOpTemp</Name>
-<Val>40.00000000000000</Val>
+<Val>30.00000000000000</Val>
 </DBL>
 <I32>
 <Name>MaxOpDwell(min)</Name>
