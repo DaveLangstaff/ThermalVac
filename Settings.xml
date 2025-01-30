@@ -197,7 +197,7 @@
 </String>
 <String>
 <Name>onecycle</Name>
-<Val>define onecycle (Heat.PID.SetPoint=-131.5 Heat.PID.input=3C pwm=100 while(#3C&gt;-127.5) {pause 0.2 s}pwm= 20 pause 10 min Heat.PID.Setpoint=50.0 while(#3C&lt;45.0){pause 0.2 s}pwm=20 pause 30 min pwm=0)
+<Val>define onecycle (pwm=100 Heat.PID.Ramp=0 Heat.PID.SetPoint=-131.5 Heat.PID.input=3C while(#3C&gt;-127.5){pause 0.2 s}  pwm=20 pause 10 min pwm=0 Heat.PID.SetPoint=-80.0 while(#3C&lt;-85.0){pause 0.2 s} pwm=20 pause 45 min pwm=0 Heat.PID.SetPoint=-50.0 while(#3C&lt;-55.0){pause 0.2 s} pwm=20 pause 30 min Heat.PID.Ramp=0.00666667 Heat.PID.SetPoint=40.0 while (#3C&lt;35.0){pause 0.2 s} pause 30 min Heat.PID.Ramp=0 Heat.PID.SetPoint =50.000000 while (#3C&lt;45.0){pause 0.2 s} pause 30 min )
 </Val>
 </String>
 <String>
@@ -210,7 +210,7 @@
 </String>
 <String>
 <Name>ToAmbient</Name>
-<Val>define ToAmbient(5A.PID.setpoint=20.0 if(#3C&gt;25.0){pwm=100 run pwmloop while(#3C&gt;25.0){pause 0.5 s} pwm=0 relays=0 kill pwmloop}else{pwm=0 relays=0 while(#3C&lt;15.0){pause 0.5 s}} outputenable off)</Val>
+<Val>define ToAmbient(pwm=0 outputenable off)</Val>
 </String>
 <String>
 <Name>StartupCode</Name>
@@ -429,14 +429,14 @@
 </Cluster>
 <U16>
 <Name>CycleType</Name>
-<Val>0</Val>
+<Val>1</Val>
 </U16>
 <DBL>
 <Name>MaxOpTemp</Name>
 <Val>40.00000000000000</Val>
 </DBL>
 <I32>
-<Name>MinOpDwell(min)</Name>
+<Name>MaxOpDwell(min)</Name>
 <Val>30</Val>
 </I32>
 </Cluster>
