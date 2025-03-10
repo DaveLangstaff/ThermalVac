@@ -1,6 +1,6 @@
 <?xml version='1.0' standalone='yes' ?>
 <LVData xmlns="http://www.ni.com/LVData">
-<Version>25.1.1f1</Version>
+<Version>24.3.2f2</Version>
 <Cluster>
 <Name>User Configuration</Name>
 <NumElts>2</NumElts>
@@ -138,7 +138,7 @@
 </Cluster>
 <Boolean>
 <Name>on</Name>
-<Val>0</Val>
+<Val>1</Val>
 </Boolean>
 </Cluster>
 <Cluster>
@@ -153,7 +153,7 @@
 <NumElts>2</NumElts>
 <DBL>
 <Name>lower</Name>
-<Val>5.00000000000000E-5</Val>
+<Val>5.00000000000000E-4</Val>
 </DBL>
 <DBL>
 <Name>upper</Name>
@@ -162,7 +162,7 @@
 </Cluster>
 <Boolean>
 <Name>on</Name>
-<Val>0</Val>
+<Val>1</Val>
 </Boolean>
 </Cluster>
 </Cluster>
@@ -209,7 +209,7 @@
 </Refnum>
 <String>
 <Name>pwmloop</Name>
-<Val>define pwmloop(#t=0 while (1) {waitforsample if(#pwm=-1){relays=0}else{if(#t&lt;#pwm) {relays=1}else{relays=3}}#t+=1 if  (#t&gt;99){#t=0} pause 0.2 s})</Val>
+<Val>define pwmloop(#t=0 while (1) {waitforsample #r=#relays if(#pwm=-1){#r&amp;=12}else{if(#t&lt;#pwm) {#r&amp;=13 #r|=1}else{#r&amp;=13 #r|=3}}#t+=1 if (#t&gt;99){#t=0} relays=#r pause 0.2 s})</Val>
 </String>
 <String>
 <Name>onecycle</Name>
@@ -218,7 +218,7 @@
 </String>
 <String>
 <Name>control</Name>
-<Val>define control (while (#Cycles&gt;0) {onecycle pause 1 s #Cycles+= -1 waitforsample})</Val>
+<Val>define control (while (#Cycles&gt;0) {onecycle pause 1 s Cycles += -1 waitforsample} pwm=0 outputEnable off)</Val>
 </String>
 <String>
 <Name>HeatDrive</Name>
@@ -373,15 +373,15 @@
 <NumElts>4</NumElts>
 <DBL>
 <Name>P</Name>
-<Val>1.14000000000000</Val>
+<Val>72.90000000000001</Val>
 </DBL>
 <DBL>
 <Name>I</Name>
-<Val>1.20000000000000E-2</Val>
+<Val>0.14000000000000</Val>
 </DBL>
 <DBL>
 <Name>D</Name>
-<Val>21.68000000000000</Val>
+<Val>2000.00000000000000</Val>
 </DBL>
 <DBL>
 <Name>Set</Name>
@@ -397,7 +397,7 @@
 </DBL>
 <DBL>
 <Name>HeaterTestTemp</Name>
-<Val>-78.00000000000000</Val>
+<Val>-79.00000000000000</Val>
 </DBL>
 <I32>
 <Name>HeaterTestDwell(min)</Name>
@@ -424,7 +424,7 @@
 <NumElts>10</NumElts>
 <DBL>
 <Name>MinSurviveTemp</Name>
-<Val>-131.50000000000000</Val>
+<Val>-132.50000000000000</Val>
 </DBL>
 <I32>
 <Name>MinSurvive Dwell(min)</Name>
@@ -432,11 +432,11 @@
 </I32>
 <DBL>
 <Name>MaxSurviveTemp</Name>
-<Val>53.50000000000000</Val>
+<Val>53.00000000000000</Val>
 </DBL>
 <I32>
 <Name>MaxSurviveDwell(min)</Name>
-<Val>30</Val>
+<Val>35</Val>
 </I32>
 <U16>
 <Name>ControlInput</Name>
@@ -469,7 +469,7 @@
 </U16>
 <DBL>
 <Name>MaxOpTemp</Name>
-<Val>43.00000000000000</Val>
+<Val>42.50000000000000</Val>
 </DBL>
 <I32>
 <Name>MaxOpDwell(min)</Name>

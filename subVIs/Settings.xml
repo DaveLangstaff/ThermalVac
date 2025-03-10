@@ -213,7 +213,7 @@
 </Refnum>
 <String>
 <Name>pwmloop</Name>
-<Val>define pwmloop(#t=0 while (1) {waitforsample if(#pwm=0){relays=0}else{if(#t&lt;#pwm) {relays=1}else{relays=3}}#t+=1 if  (#t&gt;99){#t=0} pause 0.2 s})</Val>
+<Val>define pwmloop(#t=0 while (1) {waitforsample #r=#relays if(#pwm=-1){#r&amp;=12}else{if(#t&lt;#pwm) {#r&amp;=13 #r|=1}else{#r&amp;=13 #r|=3}}#t+=1 if (#t&gt;99){#t=0} relays=#r pause 0.2 s})</Val>
 </String>
 <String>
 <Name>onecycle</Name>
@@ -221,7 +221,7 @@
 </String>
 <String>
 <Name>control</Name>
-<Val>define control (#count=1 while (#count&gt;0) {onecycle pause 1 s #count-=1})</Val>
+<Val>define control (while (#Cycles&gt;0) {onecycle pause 1 s Cycles += -1 waitforsample} pwm=0 outputEnable off)</Val>
 </String>
 <String>
 <Name>Failsafe</Name>
