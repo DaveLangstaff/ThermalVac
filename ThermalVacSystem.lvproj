@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
-<Project Type="Project" LVVersion="25008000">
+<Project Type="Project" LVVersion="24008000">
 	<Property Name="NI.LV.All.SaveVersion" Type="Str">24.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.Project.Description" Type="Str"></Property>
@@ -113,7 +113,7 @@
 				<Property Name="Bld_localDestDir" Type="Path">/C/Users/Public/Documents/StandAloneTVC</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{5AA39B58-AC20-4B51-A9EE-788F1D2D4A70}</Property>
-				<Property Name="Bld_version.build" Type="Int">32</Property>
+				<Property Name="Bld_version.build" Type="Int">33</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">ThermalVacSystem.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">/C/Users/Public/Documents/StandAloneTVC/NI_AB_PROJECTNAME.exe</Property>
@@ -124,7 +124,7 @@
 				<Property Name="Destination[1].path" Type="Path">/C/Users/Public/Documents/StandAloneTVC</Property>
 				<Property Name="Destination[1].path.type" Type="Str">&lt;none&gt;</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Source[0].itemID" Type="Str">{63BAB8C7-B441-4336-BCA3-D44022EEF0C4}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{BCF63609-4B45-43A2-B765-5BB5A04FA72B}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/Main.vi</Property>
