@@ -138,7 +138,7 @@
 </Cluster>
 <Boolean>
 <Name>on</Name>
-<Val>0</Val>
+<Val>1</Val>
 </Boolean>
 </Cluster>
 <Cluster>
@@ -162,7 +162,7 @@
 </Cluster>
 <Boolean>
 <Name>on</Name>
-<Val>0</Val>
+<Val>1</Val>
 </Boolean>
 </Cluster>
 </Cluster>
@@ -213,7 +213,7 @@
 </String>
 <String>
 <Name>onecycle</Name>
-<Val>define onecycle (pwm=100 Heat.PID.Ramp=0 Heat.PID.SetPoint=-132.5 Heat.PID.input=4C while(#4C&gt;-122.5){pause 0.2 s}  pwm=20 pause 35 min pwm=0 Heat.PID.SetPoint=-79.0 while(#4C&lt;-87.0){pause 0.2 s} pwm=20 pause 45 min pwm=0 Heat.PID.SetPoint=-54.0 while(#4C&lt;-62.0){pause 0.2 s} pwm=20 pause 50 min Heat.PID.Ramp=0.00750000 Heat.PID.SetPoint=42.5 while (#4C&lt;34.5){pause 0.2 s} pause 50 min Heat.PID.Ramp=0 Heat.PID.SetPoint =53.000000 while (#4C&lt;45.0){pause 0.2 s} pause 35 min )
+<Val>define onecycle (Heat.PID.SetPoint=-20.0 Heat.PID.input=4C pwm=100 while(#4C&gt;-10.0) {pause 0.2 s}pwm= 20 pause 10 min pwm=0 Heat.PID.Setpoint=25.0 while(#4C&lt;17.0){pause 0.2 s}pwm=20 pause 10 min pwm=0)
 </Val>
 </String>
 <String>
@@ -424,19 +424,19 @@
 <NumElts>10</NumElts>
 <DBL>
 <Name>MinSurviveTemp</Name>
-<Val>-132.50000000000000</Val>
+<Val>-20.00000000000000</Val>
 </DBL>
 <I32>
 <Name>MinSurvive Dwell(min)</Name>
-<Val>35</Val>
+<Val>10</Val>
 </I32>
 <DBL>
 <Name>MaxSurviveTemp</Name>
-<Val>53.00000000000000</Val>
+<Val>25.00000000000000</Val>
 </DBL>
 <I32>
 <Name>MaxSurviveDwell(min)</Name>
-<Val>35</Val>
+<Val>10</Val>
 </I32>
 <U16>
 <Name>ControlInput</Name>
@@ -465,7 +465,7 @@
 </Cluster>
 <U16>
 <Name>CycleType</Name>
-<Val>1</Val>
+<Val>0</Val>
 </U16>
 <DBL>
 <Name>MaxOpTemp</Name>
